@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% regroup games by home_team.league as events_by_league %}
+{% for league in events_by_league %}
+    <h2>{{ league.grouper }}</h2>
+    <ul>
+        {% for game in league.list %}
+        <li>{{ game }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+</body>
+</html>
